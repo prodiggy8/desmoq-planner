@@ -1,0 +1,87 @@
+@import url("https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700");
+
+body.ml-calendar-demo {
+  background-image: url("https://desmoq.com/wp-content/uploads/2022/08/Background-Frota-Desmoq-Atualizado.jpg"); /*#361F59;*/
+  padding: 60px 20px;
+}
+
+.ml-calendar {
+  background: #fff;
+  color: #2d2e2f;
+  font-family: Montserrat, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 300;
+  max-width: 940px;
+  margin: 0 auto;
+  box-shadow: 0px 15px 25px rgba(0, 0, 0, 0.1);
+  border-radius: 1em;
+}
+
+.ml-calendar h2 {
+  font-size: 2rem;
+  font-weight: 300;
+}
+
+.ml-calendar h2 strong {
+  font-weight: 600;
+  color: #A22DA5;
+}
+
+@media screen and (max-width: 760px) {
+  .ml-calendar section.calendar-right {
+    width: 100%;
+  }
+}
+
+.ml-calendar section.calendar-right .calendar {
+  padding: 20px 30px;
+  position: relative;
+}
+
+.ml-calendar section.calendar-right .calendar .calendar-row {
+  display: flex;
+  flex: 1 1 0;
+}
+
+.ml-calendar section.calendar-right .calendar .calendar-day {
+  width: 100%;
+  padding: .5rem .5rem;
+  min-height: 3.2em;
+  text-align: right;
+  border: 1px solid #ececec;
+  margin: -1px 0 0 -1px;
+}
+
+.ml-calendar section.calendar-right .calendar .calendar-day.day-name {
+  min-height: 0;
+  border: none;
+}
+
+.ml-calendar .calendar-text {
+  font-size: .6rem;
+  line-height: 0;
+  color: #000;
+}
+
+.ml-calendar .calendar-hours {
+  font-size: .4rem;
+  color: #A22DA5;
+  font-weight: 400;
+}
+
+.ml-calendar section.calendar-right .calendar .calendar-day .calendar-date {
+  color: #000;
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.ml-calendar section.calendar-right .calendar .calendar-day.active .calendar-date {
+  color: #A22DA5;
+}
+
+.ml-calendar section.calendar-right .calendar .calendar-day.weekend {
+  background: #f9f9f9;
+}
+
+.ml-calendar .clear {
+  clear: both;
+}

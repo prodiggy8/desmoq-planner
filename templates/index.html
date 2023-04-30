@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <title> Planejador de Estudos Desmoq V1</title>
+      <meta charset="UTF-8">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+      <style>
+         h1{
+         font-size: 32px;
+         font-family: 'Poppins';
+         }
+         h2{
+         font-family: 'Poppins'!important;
+         font-weight:600;
+         font-size: 24px;
+         }
+         h3{
+         font-family:'Poppins'!important
+         }
+         p{
+         font-family: "Poppins"!important;
+         font-size:18px!important;
+         }
+         body{
+         padding: 0;
+         margin: 0;
+         }
+         table {
+         border-collapse: collapse;
+         width: 100%;
+         }
+         th, td {
+         border: 1px solid #E3E8F0;
+         padding: 8px;
+         text-align: center;
+         background-color: #fff;
+         cursor:pointer;
+         font-family: Poppins;
+         font-weight: 500!important;
+      
+         }
+         input{
+            caret-color: #602db2;
+            color: #602db2!important;
+            font-weight: 500px!important;
+            font-size: 18px;
+         }
+         th {
+         background-color: #F7FAFC;
+         font-weight: bold;
+         }
+         tr:nth-child(even) {
+         background-color: #EDF2F7;
+         }
+         th:first-child, td:first-child {
+         text-align: left;
+         }
+         .blue {
+         background-color: #602db2 !important;
+         color: white;
+         }
+         input[type=text], input[type=email], select{
+         padding: 0.6rem 1rem ;
+         border-radius: 5px;
+         border-color: #646464;
+         border-width: 1px ;
+         }
+         input[type=text]:hover, input[type=email]:hover{
+         border-color: rgb(44, 44, 44);  
+         border-width: 1px;
+         }
+         input[type=text]::placeholder, input[type=email]::placeholder, select::placeholder{
+         font-size: 18px;
+         color: #646464;
+         font-family: 'Poppins';
+         }
+         input[type=radio]{
+         margin-top:0.5rem;
+         margin-bottom: 0.5rem;
+         font-family: 'Poppins';
+         }
+
+         input[type=radio]:checked{
+         color:red;
+         }
+         .container{
+         padding: 8% 15% 8% 15%;
+         }
+         .form{
+         padding: 0% 15% 0% 15%;
+         }
+         .btn{
+         padding: 0.6rem 1.5rem 0.6rem 1.5rem;
+         border-radius: 50px;
+         border-color: transparent;
+         color: white;
+         background-color: #602db2;
+         font-family: Poppins;
+         }
+         label{
+         font-family: Poppins;
+         font-size: 16px;
+         font-weight: 600;
+         }
+         html { scroll-behavior:smooth;}
+         button[type="submit"]{
+            background-color: #602db2; border-radius: 5px; padding: 0.6rem 2.5rem 0.6rem 2.5rem; font-size: 18px; font-family: Poppins; border-color: #602db2; border-width: 1px; color: white;
+         }
+      </style>
+   </head>
+   <body>
+      <div class="container" style="background-color: #FFF0E5; display: flex; gap: 5%;" >
+         <div style="width:50%;align-items: center; display:block;">
+            <span style="font-family: Poppins; font-size: 15px; font-style:bold;"> Versão 1.0</span>
+            <h1>
+               O planejamento perfeito até a medalha dos seus sonhos <br>
+            </h1>
+            <p>
+               Você está prestes a receber um guia completo de estudos individual para a olimpíada para a qual está está estudando! <br>
+               <br>
+            </p>
+            <br>
+
+            <button class="btn" href="#comeco">Bora começar! <i style ="margin-left: 5px;"class="fa fa-chevron-down" aria-hidden="true"></i></button>
+
+         </div>
+         <div style="width:30%">
+            <img src="images/Organize_Schedule.svg" width="400" 
+               height="400">
+         </div>
+      </div>
+      <form id="myForm" method="POST" action="/resultado">
+         <div id="comeco" class="container" style="margin-left: 0;margin-right: auto;">
+            <h1 style="color:#602db2"> Planejador de Estudos</h1>
+            <br>   
+            <h3>
+               1. Informações pessoais
+            </h3>
+            <div style="display: flex; gap: 2rem;">
+               <div>
+                  <label>Nome completo</label><br>
+                  <input type="text" id="name" name="name" placeholder="Mariazinha Pereira Santos" required>
+               </div>
+               <div>
+                  <label>Email</label><br>
+                  <input type="email" id="email" name="email" placeholder="Email" required>
+               </div>
+               <div>
+                  <label>Série escolar</label><br>
+                  <select name="serie" id="serie" required style="width: 200px;">
+                     <option value="8_abo">8° ano</option>
+                     <option value="1_ano">1° ano</option>
+                     <option value="2_ano">2° ano</option>
+                     <option value="3_ano">3° ano</option>
+                  </select>
+               </div>
+            </div>
+            <br>
+            <br>
+            <h3>
+               2. Qual o seu objetivo?
+            </h3>
+            <input type="radio" id="OBM" name="olimpiada" value="OBM">
+            <label for="OBM" style="font-family: Poppins; font-size: 18px; font-weight: 400;">OBM - Olimpíada Brasileira de Matemática</label><br>
+            <input type="radio" id="OBQ" name="olimpiada" value="OBQ">
+            <label for="OBQ" style="font-family: Poppins; font-size: 18px; font-weight: 400;">OBQ - Olimpíada Brasileira de Química</label><br>
+            <input type="radio" id="OBF" name="olimpiada" value="OBF">
+            <label for="OBF" style="font-family: Poppins; font-size: 18px; font-weight: 400;">OBF - Olimpíada Brasileira de Física</label>
+            <br>
+            <br>
+            <h3>
+               3. Qual a sua disponibilidade?
+            </h3>
+            <table>
+               <tr>
+                  <th></th>
+                  <th>seg</th>
+                  <th>ter</th>
+                  <th>qua</th>
+                  <th>qui</th>
+                  <th>sex</th>
+                  <th>sab</th>
+                  <th>dom</th>
+               </tr>
+               <tr>
+                  <th>6AM</th>
+                  <td><input name = '1_1' type="checkbox"></td>
+                  <td><input name = '2_1' type="checkbox"></td>
+                  <td><input name = '3_1' type="checkbox"></td>
+                  <td><input name = '4_1' type="checkbox"></td>
+                  <td><input name = '5_1' type="checkbox"></td>
+                  <td><input name = '6_1' type="checkbox"></td>
+                  <td><input name = '7_1' type="checkbox"></td>
+               </tr>
+               <tr>
+                  <th>7AM</th>
+                  <td><input name = '1_2' type="checkbox"></td>
+                  <td><input name = '2_2' type="checkbox"></td>
+                  <td><input name = '3_2' type="checkbox"></td>
+                  <td><input name = '4_2' type="checkbox"></td>
+                  <td><input name = '5_2' type="checkbox"></td>
+                  <td><input name = '6_2' type="checkbox"></td>
+                  <td><input name = '7_2' type="checkbox"></td>
+               </tr>
+               <tr>
+                  <th>8AM</th>
+                  <td><input name = '1_3' type="checkbox"></td>
+                  <td><input name = '2_3' type="checkbox"></td>
+                  <td><input name = '3_3' type="checkbox"></td>
+                  <td><input name = '4_3' type="checkbox"></td>
+                  <td><input name = '5_3' type="checkbox"></td>
+                  <td><input name = '6_3' type="checkbox"></td>
+                  <td><input name = '7_3' type="checkbox"></td>
+               </tr>
+               <tr>
+                  <th>9AM</th>
+                  <td><input name = '1_4' type="checkbox"></td>
+                  <td><input name = '2_4' type="checkbox"></td>
+                  <td><input name = '3_4' type="checkbox"></td>
+                  <td><input name = '4_4' type="checkbox"></td>
+                  <td><input name = '5_4' type="checkbox"></td>
+                  <td><input name = '6_4' type="checkbox"></td>
+                  <td><input name = '7_4' type="checkbox"></td>
+               </tr>
+               <tr>
+                  <th>10AM</th>
+                  <td><input name = '1_5' type="checkbox"></td>
+                  <td><input name = '2_5' type="checkbox"></td>
+                  <td><input name = '3_5' type="checkbox"></td>
+                  <td><input name = '4_5' type="checkbox"></td>
+                  <td><input name = '5_5' type="checkbox"></td>
+                  <td><input name = '6_5' type="checkbox"></td>
+                  <td><input name = '7_5' type="checkbox"></td>
+               </tr>
+               <tr>
+                  <th>11AM</th>
+                  <td><input name = '1_6' type="checkbox"></td>
+                  <td><input name = '2_6' type="checkbox"></td>
+                  <td><input name = '3_6' type="checkbox"></td>
+                  <td><input name = '4_6' type="checkbox"></td>
+                  <td><input name = '5_6' type="checkbox"></td>
+                  <td><input name = '6_6' type="checkbox"></td>
+                  <td><input name = '7_6' type="checkbox"></td>
+               </tr>
+               <tr>
+                  <th>12AM</th>
+                  <td><input name = '1_7' type="checkbox"></td>
+                  <td><input name = '2_7' type="checkbox"></td>
+                  <td><input name = '3_7' type="checkbox"></td>
+                  <td><input name = '4_7' type="checkbox"></td>
+                  <td><input name = '5_7' type="checkbox"></td>
+                  <td><input name = '6_7' type="checkbox"></td>
+                  <td><input name = '7_7' type="checkbox"></td>
+               </tr>
+               <tr>
+                  <th>13AM</th>
+                  <td><input name = '1_8' type="checkbox"></td>
+                  <td><input name = '2_8' type="checkbox"></td>
+                  <td><input name = '3_8' type="checkbox"></td>
+                  <td><input name = '4_8' type="checkbox"></td>
+                  <td><input name = '5_8' type="checkbox"></td>
+                  <td><input name = '6_8' type="checkbox"></td>
+                  <td><input name = '7_8' type="checkbox"></td>
+               </tr>
+               <tr>
+                  <th>14AM</th>
+                  <td><input name = '1_9' type="checkbox"></td>
+                  <td><input name = '2_9' type="checkbox"></td>
+                  <td><input name = '3_9' type="checkbox"></td>
+                  <td><input name = '4_9' type="checkbox"></td>
+                  <td><input name = '5_9' type="checkbox"></td>
+                  <td><input name = '6_9' type="checkbox"></td>
+                  <td><input name = '7_9' type="checkbox"></td>
+               </tr>
+               <tr>
+                  <th>15AM</th>
+                  <td><input name = '1_10' type="checkbox"></td>
+                  <td><input name = '2_10' type="checkbox"></td>
+                  <td><input name = '3_10' type="checkbox"></td>
+                  <td><input name = '4_10' type="checkbox"></td>
+                  <td><input name = '5_10' type="checkbox"></td>
+                  <td><input name = '6_10' type="checkbox"></td>
+                  <td><input name = '7_10' type="checkbox"></td>
+               </tr>
+            </table>
+            <br>
+            <br>
+            <div style="align-items: center;">
+               <button type="submit" name="submit"> <i class="fa fa-arrow-down" aria-hidden="true"> </i> Baixar calendário</button>
+            </div>
+         </div>
+      </form>
+      <br>
+      <script>
+
+         //troca a cor da celula da tabela semanal para roxo quando clicado
+         function toggleBackground(el) {
+         el.classList.toggle('blue');
+         }
+         
+         const cells = document.querySelectorAll('td, th');
+         cells.forEach(cell => {
+         cell.addEventListener('click', () => {
+            // Check if the cell is in the first row or column
+            if (cell.cellIndex > 0 && cell.parentNode.rowIndex > 0) {
+               toggleBackground(cell);
+            }
+         });
+         });
+
+      </script>
+   </body>
+</html>
