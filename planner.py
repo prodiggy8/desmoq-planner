@@ -242,4 +242,4 @@ def parse_to_pdf(files, name):
 # dias_ate_OBF = (OBF_data - today).days # aqui retorna o numero de dias
 
 if __name__ == '__main__':
-    app.run(debug = True)
+    app.run(debug=True, port=33507)
