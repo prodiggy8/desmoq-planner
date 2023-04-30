@@ -1,1 +1,1 @@
-web: python planner.py
+"web: gunicorn app:app" 
