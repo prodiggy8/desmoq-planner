@@ -1,1 +1,1 @@
-worker: python planner.py
+web: python planner.py
