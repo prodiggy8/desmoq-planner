@@ -201,6 +201,10 @@ def parse_to_pdf(files, name):
     n = len(files)
     root = os.path.abspath(os.path.dirname(__file__))
     
+    for file in os.listdir('user_files'):
+        if file.endswith(".html") or file.endswith('.pdf'):
+            os.remove('user_files/' + name)    
+    
     for i in range(n):
         with io.open('{}/user_files/{}.html'.format(root, i), 'w', encoding = 'utf8') as f:
             f.write(files[i])
@@ -221,10 +225,10 @@ def parse_to_pdf(files, name):
     for pdf in ['{}/user_files/{}.pdf'.format(root, i) for i in range(n)]:
         merger.append(pdf)
 
-    merger.write('{}/{}.pdf'.format(root, name))
+    merger.write('{}/user_files/{}.pdf'.format(root, name))
     merger.close()
 
-    return '{}/{}.pdf'.format(root, name)
+    return '{}/user_files/{}.pdf'.format(root, name)
 
 
 # calcular dias até a OBF (tem q adicionar pra outras olimpiadas)
