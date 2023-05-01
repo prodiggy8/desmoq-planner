@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request, send_file
 from datetime import datetime, timedelta
-from pyhtml2pdf import converter
+import converter
 from pypdf import PdfMerger
 import calendar
 import io
@@ -139,7 +139,7 @@ def generate_schedule(availability, olympiad, distance):
                 # schedule.append('{}'.format(topic[-1][0]))
                 topic[-1][1] -= availability[week_day]
 
-            if len(topic): 
+            if len(topic) > 0: 
                 queue.enqueue(topic)
             else:
                 items = [queue.dequeue() for i in range(queue.n)]
