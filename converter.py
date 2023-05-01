@@ -79,6 +79,7 @@ def __get_pdf_from_html(
     #else:
     driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), options = webdriver_options)
 
+    path = 'https://www.google.com'
     driver.get(path)
 
     try:
