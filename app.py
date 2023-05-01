@@ -13,24 +13,18 @@ from snippets import *
 import os
 app = Flask(__name__)
 
-
-name = email = serie = olimpiada = ""
-hours = []
-
 @app.route('/')
 def index():
     return render_template('index.html')
 
 @app.route('/resultado', methods = ['POST'])
 def resultado():
-
-    global name, email, serie, olimpiada, hours
-
     if request.method == 'POST':
         name = request.form['name']
         email = request.form['email']
         serie = request.form['serie']
         olimpiada = request.form['olimpiada']
+        hours = []
         
         for i in range(1, 8):
             counts = 0
