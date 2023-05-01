@@ -25,7 +25,7 @@ def resultado():
         serie = request.form['serie']
         olimpiada = request.form['olimpiada']
         hours = []
-        
+
         for i in range(1, 8):
             counts = 0
             for j in range(1, 11):
@@ -36,8 +36,9 @@ def resultado():
             hours.append(counts)
     
     date_until_obf = 60 # Test value
+    olimpiada = obf_1
 
-    schedule = generate_schedule(hours, obf_1, date_until_obf)
+    schedule = generate_schedule(hours, olimpiada, date_until_obf)
     files = generate_files(schedule, date_until_obf)
     final = parse_to_pdf(files, name)
 
