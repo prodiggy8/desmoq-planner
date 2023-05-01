@@ -72,12 +72,12 @@ def __get_pdf_from_html(
 
     webdriver_prefs["profile.default_content_settings"] = {"images": 2}
 
-    if install_driver:
-        driver = webdriver.Chrome(
-            ChromeDriverManager().install(), chrome_options=webdriver_options
-        )
-    else:
-        driver = webdriver.Chrome(chrome_options = webdriver_options)
+    #if install_driver:
+    #    driver = webdriver.Chrome(
+    #        ChromeDriverManager().install(), options=webdriver_options
+    #    )
+    #else:
+    driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), options = webdriver_options)
 
     driver.get(path)
 
