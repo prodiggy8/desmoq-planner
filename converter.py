@@ -20,7 +20,7 @@ def convert(
     timeout: int = 2,
     compress: bool = False,
     power: int = 0,
-    install_driver: bool = True,
+    install_driver: bool = False,
     print_options: dict = {},
 ):
     """
@@ -68,7 +68,7 @@ def __get_pdf_from_html(
     webdriver_options.add_argument("--no-sandbox")
     webdriver_options.add_argument("--disable-dev-shm-usage")
     webdriver_options.experimental_options["prefs"] = webdriver_prefs
-    webdriver_options.binary_location = os.environ.get("GOOGLE_CHROME_BIN")
+    #webdriver_options.binary_location = os.environ.get("GOOGLE_CHROME_BIN")
 
     webdriver_prefs["profile.default_content_settings"] = {"images": 2}
 
@@ -77,7 +77,7 @@ def __get_pdf_from_html(
             ChromeDriverManager().install(), chrome_options=webdriver_options
         )
     else:
-        driver = webdriver.Chrome(executable_path = os.environ.get("CHROMEDRIVER_PATH"), chrome_options = webdriver_options)
+        driver = webdriver.Chrome(chrome_options = webdriver_options)
 
     driver.get(path)
 
