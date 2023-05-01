@@ -50,7 +50,12 @@ def resultado():
     
 @app.route('/teste')
 def teste():
-    return os.path.abspath(os.path.dirname(__file__))
+    return f'''
+        dirname: {os.path.abspath(os.path.dirname(__file__))}
+        cwd: {os.getcwd()}
+        ls: {os.listdir()}
+    '''
+
 class Circ():
     def __init__(self, n):
         self.n = n
