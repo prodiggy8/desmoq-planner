@@ -211,7 +211,8 @@ def parse_to_pdf(files, name):
         is_used = True
         while is_used:
             temp = get_random_string(16)
-            if temp  + '.html' not in os.listdir('user_files'):
+            temp_file = temp + '.html'
+            if temp_file not in os.listdir('user_files'):
                 is_used = False
                 names.append(temp)
 
@@ -237,7 +238,8 @@ def parse_to_pdf(files, name):
     is_used = True
     while is_used:
             final = get_random_string(8)
-            if final + '.pdf' not in os.listdir('user_files'):
+            final_file = final + '.pdf'
+            if final_file not in os.listdir('user_files'):
                 is_used = False
 
     merger.write('{}/user_files/{}.pdf'.format(root, final))
