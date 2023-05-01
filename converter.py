@@ -74,7 +74,7 @@ def __get_pdf_from_html(
 
     if install_driver:
         driver = webdriver.Chrome(
-            ChromeDriverManager().install(), executable_path=os.environ.get("CHROMEDRIVER_PATH"), options=webdriver_options
+            ChromeDriverManager().install(), options=webdriver_options
         )
     else:
         driver = webdriver.Chrome(executable_path = os.environ.get("CHROMEDRIVER_PATH"), options = webdriver_options)
