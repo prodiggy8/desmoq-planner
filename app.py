@@ -199,6 +199,7 @@ def generate_files(schedule, distance, date_format = '%m/%d/%Y'):
     return files
 
 def get_random_string(length):
+    random.seed(datetime.now().timestamp())
     return ''.join(random.choice(string.ascii_lowercase) for i in range(length))
 
 def parse_to_pdf(files, name):
