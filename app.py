@@ -1,7 +1,8 @@
 from flask import Flask, render_template, request, send_file
 from datetime import datetime, timedelta
 import converter
-# from pyhtml2pdf import converter
+import string
+import random
 from pypdf import PdfMerger
 import calendar
 import io
@@ -197,20 +198,27 @@ def generate_files(schedule, distance, date_format = '%m/%d/%Y'):
 
     return files
 
+def get_random_string(length):
+    return ''.join(random.choice(string.ascii_lowercase) for i in range(length))
+
 def parse_to_pdf(files, name):
     n = len(files)
     root = os.path.abspath(os.path.dirname(__file__))
-    
-    for file in os.listdir('user_files'):
-        if file.endswith(".html") or file.endswith('.pdf'):
-            os.remove('user_files/' + name)    
-    
+    names = []
+
     for i in range(n):
-        with io.open('{}/user_files/{}.html'.format(root, i), 'w', encoding = 'utf8') as f:
+        is_used = True
+        while is_used:
+            temp = get_random_string(16)
+            if temp  + '.html' not in os.listdir('user_files'):
+                is_used = False
+                names.append(temp)
+
+        with io.open('{}/user_files/{}.html'.format(root, temp), 'w', encoding = 'utf8') as f:
             f.write(files[i])
             f.close()
 
-        converter.convert('file://'+'{}/user_files/{}.html'.format(root, i), '{}/user_files/{}.pdf'.format(root, i), print_options = {
+        converter.convert('file://'+'{}/user_files/{}.html'.format(root, temp), '{}/user_files/{}.pdf'.format(root, temp), print_options = {
             'paperHeight': 7.6,
             'paperWidth': 11.7,
             'printBackground': True,
@@ -222,13 +230,19 @@ def parse_to_pdf(files, name):
 
     merger = PdfMerger()
 
-    for pdf in ['{}/user_files/{}.pdf'.format(root, i) for i in range(n)]:
+    for pdf in ['{}/user_files/{}.pdf'.format(root, i) for i in names]:
         merger.append(pdf)
 
-    merger.write('{}/user_files/{}.pdf'.format(root, name))
+    is_used = True
+    while is_used:
+            final = get_random_string(8)
+            if final + '.pdf' not in os.listdir('user_files'):
+                is_used = False
+
+    merger.write('{}/user_files/{}.pdf'.format(root, final))
     merger.close()
 
-    return '{}/user_files/{}.pdf'.format(root, name)
+    return '{}/user_files/{}.pdf'.format(root, final)
 
 
 # calcular dias até a OBF (tem q adicionar pra outras olimpiadas)
