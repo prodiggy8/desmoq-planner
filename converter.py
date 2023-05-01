@@ -20,7 +20,7 @@ def convert(
     timeout: int = 2,
     compress: bool = False,
     power: int = 0,
-    install_driver: bool = False,
+    install_driver: bool = True,
     print_options: dict = {},
 ):
     """
@@ -74,7 +74,7 @@ def __get_pdf_from_html(
 
     if install_driver:
         driver = webdriver.Chrome(
-            ChromeDriverManager().install(), options=webdriver_options
+            ChromeDriverManager().install(), executable_path=os.environ.get("CHROMEDRIVER_PATH"), options=webdriver_options
         )
     else:
         driver = webdriver.Chrome(executable_path = os.environ.get("CHROMEDRIVER_PATH"), options = webdriver_options)
