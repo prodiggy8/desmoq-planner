@@ -50,18 +50,7 @@ def resultado():
     
 @app.route('/teste')
 def teste():
-
-    return f"""
-    Este é um teste, apenas. Abaixo devem aparecer algumas informações: \n \n 
-    Nome: {name}\n 
-    Email: {email}\n 
-    Serie: {serie}\n 
-    Olimpiada: {olimpiada}\n 
-    Numero de dias até a sua prova: {'60'} \n 
-    Contagem de cada dia da semana: 
-    Semana: {hours}
-    """
-
+    return os.path.abspath(os.path.dirname(__file__))
 class Circ():
     def __init__(self, n):
         self.n = n
