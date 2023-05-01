@@ -206,7 +206,7 @@ def parse_to_pdf(files, name):
             f.write(files[i])
             f.close()
 
-        converter.convert('{}/user_files/{}.html'.format(root, i), '{}/user_files/{}.pdf'.format(root, i), print_options = {
+        converter.convert('file://'+'{}/user_files/{}.html'.format(root, i), '{}/user_files/{}.pdf'.format(root, i), print_options = {
             'paperHeight': 7.6,
             'paperWidth': 11.7,
             'printBackground': True,
