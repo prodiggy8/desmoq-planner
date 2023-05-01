@@ -20,7 +20,7 @@ def convert(
     timeout: int = 2,
     compress: bool = False,
     power: int = 0,
-    install_driver: bool = False,
+    install_driver: bool = True,
     print_options: dict = {},
 ):
     """
