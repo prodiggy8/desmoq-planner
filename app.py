@@ -17,6 +17,11 @@ app = Flask(__name__)
 def index():
     return render_template('index.html')
 
+@app.route('/teste2', methods = ['POST'])
+def teste2():
+    if request.method == 'POST':
+        return request.form
+
 @app.route('/resultado', methods = ['POST'])
 def resultado():
     if request.method == 'POST':
@@ -253,4 +258,4 @@ def parse_to_pdf(files, name):
 # dias_ate_OBF = (OBF_data - today).days # aqui retorna o numero de dias
 
 if __name__ == '__main__':
-    app.run()
+    app.run(debug = True)
