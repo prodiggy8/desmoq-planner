@@ -63,3 +63,14 @@ calendar_weekend_inactive = '''
 <div class="calendar-day weekend inactive">
 </div>
 '''
+
+
+
+'''
+- Layout final: códigos
+- Criar página de glossário
+- Setar margens PDF client side
+- Setar desktop-mode forceful HTML/CSS
+- Cores dinâmicas
+- SQLAchemy -> POSTGRES Heroku
+'''

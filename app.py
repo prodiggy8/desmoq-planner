@@ -45,9 +45,13 @@ def resultado():
 
     schedule = generate_schedule(hours, olimpiada, date_until_obf)
     files = generate_files(schedule, date_until_obf)
-    final = parse_to_pdf(files, name)
+    import pdfkit
+    config = pdfkit.configuration(wkhtmltopdf="C:\\Program Files\\wkhtmltopdf\\bin\\wkhtmltopdf.exe") 
+    pdfkit.from_string(files[0], 'out.pdf', configuration=config)
 
-    return send_file(final)
+    #final = parse_to_pdf(files, name)
+
+    #return send_file(final)
     
 @app.route('/teste')
 def teste():
